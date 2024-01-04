@@ -17,7 +17,7 @@ const devConfig = {
         }),
         new ModuleFederation({
             name: 'marketing',
-            filename: 'remoteEntryMarketing.js',
+            filename: 'remoteEntry.js',
             exposes: {
                 './MarketingIndex': './src/bootstrap'
             },

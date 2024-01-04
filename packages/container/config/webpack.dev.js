@@ -8,8 +8,12 @@ const devConfig = {
     mode: 'development',
     devServer: {
         port: 8080,
-        historyApiFallback: {
-            index: 'index.html'
+        historyApiFallback: { // use for client side routing usefullfor single page apps when a route fails client side it will redirect here 
+            index: 'index.html',
+            rewrites: [
+                { from: /^\/subpager/, to: './public/indexError.html' }, // when you hit subpager it will load index error.html
+                { from: /./, to: './public/indexAnywhereElse.html' }, //anywhere else 
+              ],
         }
     },
     plugins: [
@@ -19,7 +23,7 @@ const devConfig = {
         new ModuleFederation({
             name: 'container',
             remotes: {
-                marketing: 'marketing@http://localhost:8081/remoteEntryMarketing.js',
+                marketing: 'marketing@http://localhost:8081/remoteEntry.js',
                 // cartApp: 'cart@http://localhost:8082/remoteEntry.js',
 
             },
