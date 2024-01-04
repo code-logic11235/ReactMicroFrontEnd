@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     module: {
         rules: [
@@ -9,10 +11,17 @@ module.exports = {
                     options: {
                         presets: ['@babel/preset-react', '@babel/preset-env'], // preset-react converts jsx, preset-env take es15 es16 syntax to es5
                         plugins: ['@babel/plugin-transform-runtime'], // add additional code to enable feature such as 'asych' and 'await' syntax.
+                    
                     }
                 }
 
             }
         ]
-    }
+    },
+    plugins: [ //using plugins html here so that both dev and prod have a html template to run. before we only hadd it in webpack.dev.js but now its moved here 
+        new HtmlWebpackPlugin ({
+            template: './public/index.html'
+        }) 
+    ]
+    
 }
