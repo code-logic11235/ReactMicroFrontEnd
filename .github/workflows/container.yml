@@ -3,9 +3,9 @@ name: CI/CD for container
 on: 
   push:
     branches: 
-      -main
+      - main
     paths: 
-      -'packages/container/**' #only run this work flow if we make changes inside of this container
+      - 'packages/container/**' #only run this work flow if we make changes inside of this container
       
 defaults: 
   run: 
