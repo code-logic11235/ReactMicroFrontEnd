@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest # running on sopecific virtual machine 
 
     steps:
-      - uses: actions/checkout2@v2 # checkout and use our code. similar to "use database" before quering it 
+      - uses: actions/checkout@v2 # checkout and use our code. similar to "use database" before quering it 
       - run: npm install
       - run: npm run build #build our dist directory
 
