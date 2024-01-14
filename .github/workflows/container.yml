@@ -1,0 +1,29 @@
+name: CI/CD for container
+
+on: 
+  push:
+    branches: 
+      -master
+      -main
+    paths: 
+      -'packages/container/**' #only run this work flow if we make changes inside of this container
+      
+defaults: 
+  run: 
+    working-directory: packages/container
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # running on sopecific virtual machine 
+
+    steps:
+      - uses: actions/checkout2@v2 # checkout and use our code. similar to "use database" before quering it 
+      - run: npm install
+      - run: npm run build #build our dist directory
+
+      - uses: shinyinc/action-aws-cli@v1.2 # this gives us access to AWS CLI 
+      - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest # put our code into a S3 bucket
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ""
