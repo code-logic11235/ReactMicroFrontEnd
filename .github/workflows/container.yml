@@ -4,7 +4,6 @@ on:
   push:
     branches: 
       -master
-      -main
     paths: 
       -'packages/container/**' #only run this work flow if we make changes inside of this container
       
