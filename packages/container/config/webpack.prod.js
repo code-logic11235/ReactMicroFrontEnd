@@ -8,7 +8,8 @@ const domain = process.env.PRODUCTION_DOMAIN;
 const prodConfig = {
   mode: 'production',
   output: {
-    filename: '[name].[contenthash].js',
+    filename: '[name].[contenthash].js', // change how our files getnamesd after bundling with webpack
+    publicPath: '/container/latest/' // prepend filename output 
   },
   plugins: [
     new ModuleFederationPlugin({
