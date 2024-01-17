@@ -9,7 +9,8 @@ const prodConfig = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    publicPath: '/container/latest/' // prepend filename output 
+    publicPath: '/container/latest/' //set up path so remoteEntry.js find the correct folder inside of s3 bucket
+    //because remote entry.js is where the intructions to load up files are
 
   },
   plugins: [
