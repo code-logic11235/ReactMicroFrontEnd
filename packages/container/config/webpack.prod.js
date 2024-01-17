@@ -14,8 +14,8 @@ const prodConfig = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'container',
-      remotes: { // where we go to get our source code 
-        marketing: `marketing@${domain}/marketing/remoteEntry.js`, // domain is using a evironment variable so it become more dynamic on different environment 
+      remotes: { // where we go to get our source code // where to go to get remoteEntry .js file
+        marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`, // domain is using a evironment variable so it become more dynamic on different environment 
       },
       shared: packageJson.dependencies,
     }),
