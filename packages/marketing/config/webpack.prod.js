@@ -16,7 +16,6 @@ const prodConfig = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'marketing',
-      filename: 'remoteEntry.js',
       exposes: { // declare which modules or pieces of code within a webpack bundle should be made available for consumption by other applications.
         './MarketingIndex': './src/bootstrap' // the name marketing /MarkingApp we will give them /src/bootstrap
       },
