@@ -20,7 +20,7 @@ jobs:
       - run: npm install
       - run: npm run build #build our dist directory
         env: 
-          PRODUCTION_DOMAIN: ${{secrets.PRODUCTION_DOMAIN}} // exposing environment variable
+          PRODUCTION_DOMAIN: ${{secrets.PRODUCTION_DOMAIN}} # exposing environment variable
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
