@@ -19,7 +19,6 @@ export default () => {
             <StylesProvider>
                     <div>
                         <Header/>
-                        <h1> hey from contianrer app.js</h1>
                         <MarketingApp/>
                     </div>
             </StylesProvider>
