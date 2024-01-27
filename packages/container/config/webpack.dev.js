@@ -8,7 +8,7 @@ const devConfig = {
     devServer: {
         port: 8080,
         historyApiFallback: { // use for client side routing usefullfor single page apps when a route fails client side it will redirect here 
-            index: 'index.html',
+            index: '/index.html',
             rewrites: [
                 { from: /^\/subpager/, to: './public/indexError.html' }, // when you hit domain.com/subpager and it fails it will load index error.html
                 { from: /./, to: './public/indexAnywhereElse.html' }, //anywhere else 
